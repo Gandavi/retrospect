@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, World! - A-Frame</title>
+    <meta name="description" content="Hello, World! - A-Frame">
+    <script src="aframe-master.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        
+    
+        <!-- Images. -->
+        <img id="location" src="assets/img/One.jpg">
+        <img id="button" src="assets/img/sobr.jpg">
+      </a-assets>
+      <a-sky src="#location"></a-sky>
+      <a-image src="#button" position="-22.37013 2.26695 -27.46798" rotation="0 45 0" scale="10 10 1"></a-image>
+      
+      <a-box id="button" position="0 1.6 -3" width="0.5" height="0.5" depth="0.5" color="#FFC65D" onclick="showModal()"></a-box>
+
+      <a-plane id="modalWindow" visible="false" position="0 1.7 -2" width="1.5" height="1" color="#FFAA00" opacity="0.8">
+        <a-text position="0 0.1 0" value="4848949449" color="#000"></a-text>
+      </a-plane>
+      
+      <a-camera position="0 1.6 0"></a-camera>
+
+      <script>
+        function showModal() {
+          var modal = document.getElementById('modalWindow');
+          if (!modal.isVisible()) { // Показываем окно, если оно скрыто
+            modal.setAttribute('visible', true);
+          } else { // Иначе скрываем
+            modal.setAttribute('visible', false);
+          }
+        }
+      </script>
+    </a-scene>
+  </body>
+</html>
