@@ -36,8 +36,8 @@
       </a-assets>
       <a-sky src="assets/img/One.jpg" rotation="0 -90 0"></a-sky>
 
-      <a-image src="#sobr-second" id="myBox" visible="false" position="-3.80187 9.10946 -19.0122" scale="20 20 1" rotation="5.033 0 0"></a-image>
-      <a-image src="#sobr-osn" position="26.32871 3.19525 -17.61209" scale="20 20 1" rotation="5.033 -45 0"></a-image>
+      <a-image src="#sobr-second" id="myBox" opacity="0" animation__fadeIn="property: opacity; from: 0; to: 1; dur: 1000; startEvents: fadeInStart;" position="-3.80187 9.10946 -19.0122" scale="20 20 1" rotation="5.033 0 0"></a-image>
+      <a-image src="#sobr-osn" id="myBox2" opacity="0" animation__fadeIn="property: opacity; from: 0; to: 1; dur: 1000; startEvents: fadeInStart;" position="26.32871 3.19525 -17.61209" scale="20 20 1" rotation="5.033 -45 0"></a-image>
       
       
       <a-entity position="-0.5 1.4 -0.5 " rotation="-5.980533465575533 52.11624104509968 0">
@@ -87,12 +87,14 @@
       // Получаем ссылку на кнопку и коробку
       let myButton = document.getElementById('myButton');
       let myBox = document.getElementById('myBox');
+      let myBox2 = document.getElementById('myBox2');
 
       // Добавляем слушатель события клика на кнопку
       myButton.addEventListener('click', function(event) {
-          // Переключаем видимость коробки
-          myBox.setAttribute('visible', !myBox.getAttribute('visible'));
-      });
+            // Начинаем анимацию прозрачного эффекта
+            myBox.emit('fadeInStart');
+            myBox2.emit('fadeInStart');
+        });
   </script>
   </body>
 </html>
